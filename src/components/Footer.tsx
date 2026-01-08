@@ -4,7 +4,7 @@ import { Facebook, Instagram } from 'lucide-react';
 const Footer = () => {
   const socialLinks = [
     { name: "Facebook", icon: Facebook, url: "https://www.facebook.com/profile.php?id=61581815557440" },
-    { name: "Instagram", icon: Instagram, url: "https://www.facebook.com/profile.php?id=61581815557440" },
+    { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/kashinconsulting/" },
   ];
   return (
     <footer className="bg-kashin-beige border-t border-kashin-brown/10 py-12">
