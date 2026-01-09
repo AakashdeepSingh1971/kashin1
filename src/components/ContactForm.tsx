@@ -180,7 +180,7 @@ const ContactForm = () => {
               <ArrowRight className="w-4 h-4" />
             </button>
             <p className="text-kashin-brown/50 text-sm mt-4">
-              Our team will contact you within 24–48 hours.
+              Our team will contact you.
             </p>
           </div>
         </form>

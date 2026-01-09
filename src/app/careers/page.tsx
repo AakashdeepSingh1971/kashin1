@@ -1,4 +1,5 @@
 'use client'
+import JobApplicationForm from '@/components/JobForm';
 import { MapPin, Briefcase } from 'lucide-react';
 import Link from 'next/link';
 
@@ -106,7 +107,7 @@ const CareersPage = () => {
                       </div>
                     </div>
                     <Link
-                      href="/#contact"
+                      href="#careersForm"
                       className="inline-flex items-center justify-center bg-kashin-taupe text-kashin-cream px-6 py-3 rounded-full text-sm font-medium hover:bg-kashin-brown transition-colors flex-shrink-0"
                     >
                       Apply Now
@@ -125,7 +126,7 @@ const CareersPage = () => {
                 We&apos;re always looking for talented individuals. Send us your resume and tell us how you can contribute to our team.
               </p>
               <Link
-                href="/#contact"
+                href="#careersForm"
                 className="inline-flex items-center gap-2 border-2 border-kashin-brown text-kashin-brown px-8 py-3 rounded-full font-medium hover:bg-kashin-brown hover:text-kashin-cream transition-colors"
               >
                 Send Application
@@ -133,6 +134,7 @@ const CareersPage = () => {
             </div>
           </div>
         </div>
+        <JobApplicationForm />
       </main>
     </div>
   );

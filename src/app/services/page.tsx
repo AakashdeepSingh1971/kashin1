@@ -7,7 +7,7 @@ const services = [
     id: 1,
     icon: Store,
     title: 'Retail Strategy & Planning',
-    description: 'We help retail and D2C brands define clear, actionable roadmaps that align with their business goals. From market analysis to channel strategy, we build the foundation for sustainable growth.',
+    description: 'We help brands define clear, actionable roadmaps that align with their business goals. From market analysis to channel strategy, we build the foundation for sustainable growth.',
     features: [
       'Market Entry Strategy',
       'Channel Planning',
@@ -143,8 +143,7 @@ const ServicesPage = () => {
             Ready to Transform Your Business?
           </h2>
           <p className="text-kashin-brown/70 text-lg mb-8 max-w-2xl mx-auto">
-            Let&apos;s discuss how our services can help you achieve your business goals.
-            Schedule a consultation with our team today.
+            Schedule a consultation call with our team.
           </p>
           <Link
             href="/#contact"

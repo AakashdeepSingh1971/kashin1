@@ -3,61 +3,61 @@ import { db } from '@/lib/mysql';
 import { initDb } from '@/lib/init-db';
 import { logAction } from '@/lib/audit';
 
+
+
 export async function POST(req: Request) {
     try {
-        // Ensure table exists
+        // Ensure tables exist
         await initDb();
 
         const body = await req.json();
         const {
             fullName,
-            email,
             phone,
-            brandName,
-            websiteOrInstagram,
-            businessType,
+            role,
+            portfolioLink,
         } = body;
 
         const insertQuery = `
-      INSERT INTO contact_requests
-      (full_name, email, phone, brand_name, website_or_instagram, business_type)
-      VALUES (?, ?, ?, ?, ?, ?)
-    `;
+            INSERT INTO careers
+            (full_name, phone, role, portfolio_link)
+            VALUES (?, ?, ?, ?)
+        `;
 
         await db.execute(insertQuery, [
             fullName,
-            email,
             phone,
-            brandName,
-            websiteOrInstagram,
-            businessType,
+            role,
+            portfolioLink,
         ]);
-        await logAction(null, 'New contact request submitted');
-
+        // after db.execute insert
+        await logAction(null, 'New career application submitted');
         return NextResponse.json(
-            { message: 'Details saved successfully' },
+            { message: 'Application submitted successfully' },
             { status: 201 }
         );
     } catch (error) {
         console.error('DB Error:', error);
         return NextResponse.json(
-            { error: 'Failed to save details' },
+            { error: 'Failed to submit application' },
             { status: 500 }
         );
     }
 }
+
+
 
 export async function GET() {
     try {
         await initDb();
 
         const [rows] = await db.execute(
-            `SELECT * FROM contact_requests ORDER BY created_at DESC`
+            `SELECT * FROM careers ORDER BY created_at DESC`
         );
 
         return NextResponse.json(rows, { status: 200 });
     } catch (error) {
         console.error(error);
-        return NextResponse.json({ error: 'Failed to fetch contacts' }, { status: 500 });
+        return NextResponse.json({ error: 'Failed to fetch applications' }, { status: 500 });
     }
 }

@@ -46,7 +46,7 @@ const Footer = () => {
               <Link href="/founder" className="text-kashin-brown/60 hover:text-kashin-brown transition-colors">About the Founder</Link>
               <Link href="/#services" className="text-kashin-brown/60 hover:text-kashin-brown transition-colors">Our Services</Link>
               <Link href="/careers" className="text-kashin-brown/60 hover:text-kashin-brown transition-colors">Careers</Link>
-              <Link href="/testimonials" className="text-kashin-brown/60 hover:text-kashin-brown transition-colors">Client Testimonials</Link>
+              {/* <Link href="/testimonials" className="text-kashin-brown/60 hover:text-kashin-brown transition-colors">Client Testimonials</Link> */}
             </nav>
           </div>
 

@@ -15,11 +15,10 @@ const About = () => {
             </h2>
 
             <p className="text-kashin-brown/70 text-base sm:text-lg leading-relaxed mb-4 md:mb-6">
-              At Kashin, we are dedicated to helping businesses unlock their full potential through strategic, tailored consulting services.
+              At Kashin, we help businesses unlock their full potential through strategic, tailored consulting.
             </p>
-
             <p className="text-kashin-brown/70 text-base sm:text-lg leading-relaxed mb-6">
-              Founded by Nitin, a growth and performance consultant with deep experience working with fashion and lifestyle brands across strategy, operations, and scale, our firm is built on a foundation of expertise, integrity, and results-driven solutions.
+              Founded by Nitin Kapoor, a growth and performance marketing consultant with extensive experience working with fashion and lifestyle brands, Kashin is built on a foundation of expertise, integrity, and results-driven solutions.
             </p>
 
             <Link
