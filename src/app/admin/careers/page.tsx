@@ -1,9 +1,42 @@
-async function getApplications() {
+// src/app/admin/careers/page.tsx
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+
+type CareerApplication = {
+    id: number;
+    full_name: string;
+    phone: string;
+    role: string;
+    portfolio_link: string | null;
+    created_at: string; // ISO string from DB
+};
+
+async function getApplications(): Promise<CareerApplication[]> {
+    // Get token from cookies
+    const cookieStore = await cookies();
+    const token = cookieStore.get("admin_token")?.value;
+
+    // If no token → redirect to login
+    if (!token) {
+        redirect("/login");
+    }
+
+    // Fetch API with token forwarded
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/careers`, {
-        cache: 'no-store',
+        cache: "no-store",
+        headers: {
+            cookie: `admin_token=${token}`,
+        },
     });
 
-    if (!res.ok) throw new Error('Failed to fetch applications');
+    if (!res.ok) {
+        // If API returns 401 → redirect to login
+        if (res.status === 401) {
+            redirect("/login");
+        }
+        throw new Error("Failed to fetch applications");
+    }
+
     return res.json();
 }
 
@@ -26,7 +59,7 @@ export default async function CareersPage() {
                         </tr>
                     </thead>
                     <tbody>
-                        {applications.map((item: any) => (
+                        {applications.map((item: CareerApplication) => (
                             <tr key={item.id} className="text-sm">
                                 <td className="p-2 border">{item.full_name}</td>
                                 <td className="p-2 border">{item.phone}</td>
@@ -36,12 +69,13 @@ export default async function CareersPage() {
                                         <a
                                             href={item.portfolio_link}
                                             target="_blank"
+                                            rel="noopener noreferrer"
                                             className="text-blue-600 underline"
                                         >
                                             View
                                         </a>
                                     ) : (
-                                        '—'
+                                        "—"
                                     )}
                                 </td>
                                 <td className="p-2 border">

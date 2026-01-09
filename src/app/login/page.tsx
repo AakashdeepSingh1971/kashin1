@@ -7,12 +7,17 @@ export default function LoginPage() {
     const router = useRouter();
     const [error, setError] = useState('');
 
-    async function handleSubmit(e: React.FormEvent) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
-        const form = e.target as HTMLFormElement;
-        const username = (form.username as any).value;
-        const password = (form.password as any).value;
+        const form = e.currentTarget;
+        const formElements = form.elements as typeof form.elements & {
+            username: HTMLInputElement;
+            password: HTMLInputElement;
+        };
+
+        const username = formElements.username.value;
+        const password = formElements.password.value;
 
         const res = await fetch('/api/auth/login', {
             method: 'POST',
