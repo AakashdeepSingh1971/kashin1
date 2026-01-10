@@ -1,18 +1,18 @@
 import { Lightbulb, Settings } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+
 const WhatWeDo = () => {
   return (
-    <section className="bg-kashin-beige py-20 md:py-28">
+    <section className="bg-kashin-beige py-20 md:py-28 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content */}
-          <div>
+          <div className="relative z-10">
             <p className="text-kashin-brown/60 text-sm tracking-[0.25em] text-center md:text-left uppercase mb-6">
               WHAT WE DO
             </p>
 
-            <h2 className="font-display text-3xl md:text-4xl lg:text-[2.5rem]  text-kashin-brown leading-[1.3] mb-8">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-[2.5rem] text-kashin-brown leading-[1.3] mb-8">
               Kashin works with fashion and lifestyle brands at the intersection of creativity and commerce — helping them build systems, strategy, and structure for sustainable growth.
             </h2>
 
@@ -37,31 +37,31 @@ const WhatWeDo = () => {
             </div>
           </div>
 
-          {/* Right - Mobile mockup placeholder */}
-          <div className="hidden lg:flex justify-center">
-            <div className="relative">
-              <div className="w-72 h-[500px] bg-kashin-cream rounded-[2.5rem] border-8 border-kashin-brown/10 overflow-hidden shadow-xl">
-                <div className="w-full h-full p-6 flex flex-col">
-                  <div className="relative order-1 md:order-2">
-                    <Link href="/founder" className="block group">
-                      <div className="aspect-[4/5] sm:aspect-[3/4] md:aspect-[4/8] rounded-2xl overflow-hidden shadow-lg max-w-xs sm:max-w-sm mx-auto md:max-w-none">
-                        <Image fill
-                          src="/croppedFounderImage.png"
-                          alt="Nitin Kapoor - Founder of Kashin"
-                          className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
-                        />
-                      </div>
-                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 md:left-4 md:right-4 md:translate-x-0 bg-kashin-cream/90 backdrop-blur-sm rounded-lg p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-[calc(100%-2rem)] max-w-xs sm:max-w-sm md:max-w-none md:w-auto">
-                        <p className="font-display text-kashin-brown text-base md:text-lg">Nitin Kapoor</p>
-                        <p className="text-kashin-brown/60 text-xs md:text-sm">Founder, Kashin</p>
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Right - Empty for layout balance */}
+          <div className="hidden lg:block" />
         </div>
+      </div>
+
+      {/* Notebook Image - positioned to the right with gradient blend */}
+      <div className="hidden lg:block absolute top-0 right-0 w-[55%] h-full">
+        <Image fill
+          src='/what-we-do-notebook.jpeg'
+          alt="Strategic planning and creative work"
+          className="w-full h-full object-cover object-left opacity-90"
+        />
+        {/* Gradient overlays for seamless blend */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to right, hsl(30, 25%, 91%) 0%, transparent 40%)'
+          }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, hsl(30, 25%, 91%) 0%, transparent 20%, transparent 80%, hsl(30, 25%, 91%) 100%)'
+          }}
+        />
       </div>
     </section>
   );

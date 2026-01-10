@@ -91,7 +91,7 @@ const JobApplicationForm = () => {
                                     name="fullName"
                                     value={formData.fullName}
                                     onChange={handleChange}
-                                    placeholder="Jhon"
+                                    placeholder="Full Name"
                                     required
                                     className="w-full px-4 py-3.5 bg-white border border-amber-900/10 rounded-lg text-amber-900 placeholder:text-amber-900/40 focus:outline-none focus:border-amber-900/30 focus:ring-2 focus:ring-amber-900/10 transition-all"
                                 />
