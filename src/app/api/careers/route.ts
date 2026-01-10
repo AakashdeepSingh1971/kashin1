@@ -6,14 +6,6 @@ import { jwtVerify, JWTPayload } from "jose";
 import { RowDataPacket } from "mysql2";
 
 const JWT_SECRET = process.env.JWT_SECRET || "super-secret-key";
-type CareerApplication = RowDataPacket & {
-    id: number;
-    full_name: string;
-    phone: string;
-    role: string;
-    portfolio_link: string | null;
-    created_at: string;
-};
 async function verifyToken(req: Request): Promise<JWTPayload> {
     const cookie = req.headers.get("cookie") || "";
     const token = cookie.split("admin_token=")?.[1];
@@ -32,14 +24,15 @@ export async function POST(req: Request) {
             phone: string;
             role: string;
             portfolioLink: string;
+            email: string;
         } = await req.json();
 
         const insertQuery = `
       INSERT INTO careers
-      (full_name, phone, role, portfolio_link)
-      VALUES (?, ?, ?, ?)
+      (full_name, phone, role, portfolio_link, email)
+      VALUES (?, ?, ?, ?, ?)
     `;
-        await db.execute(insertQuery, [body.fullName, body.phone, body.role, body.portfolioLink]);
+        await db.execute(insertQuery, [body.fullName, body.phone, body.role, body.portfolioLink, body.email]);
 
         await logAction(null, "New career application submitted");
         return NextResponse.json({ message: "Application submitted successfully" }, { status: 201 });
@@ -63,6 +56,7 @@ export async function GET(req: Request) {
             phone: string;
             role: string;
             portfolio_link: string | null;
+            email: string;
             created_at: string;
         };
 

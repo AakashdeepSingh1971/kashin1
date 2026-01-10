@@ -55,7 +55,7 @@ const Footer = () => {
             <h4 className="font-display text-kashin-brown text-lg mb-4">Contact</h4>
             <div className="space-y-2 text-kashin-brown/60">
               <p>kashinbebrilliant@gmail.com</p>
-              <p>+91 98765 43210</p>
+              <p>+91 79821 42348</p>
               <p>Spaze iTech Park, 853, Tower, B2, Sohna - Gurgaon Rd, Sector 49, Gurugram, Haryana 122018</p>
             </div>
           </div>

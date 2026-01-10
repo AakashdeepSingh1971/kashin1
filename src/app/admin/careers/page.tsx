@@ -8,6 +8,7 @@ type CareerApplication = {
     phone: string;
     role: string;
     portfolio_link: string | null;
+    email: string;
     created_at: string; // ISO string from DB
 };
 
@@ -52,6 +53,7 @@ export default async function CareersPage() {
                     <thead className="bg-gray-100">
                         <tr>
                             <th className="p-2 border">Name</th>
+                            <th className="p-2 border">Email</th>
                             <th className="p-2 border">Phone</th>
                             <th className="p-2 border">Role</th>
                             <th className="p-2 border">Portfolio</th>
@@ -62,6 +64,7 @@ export default async function CareersPage() {
                         {applications.map((item: CareerApplication) => (
                             <tr key={item.id} className="text-sm">
                                 <td className="p-2 border">{item.full_name}</td>
+                                <td className="p-2 border">{item.email}</td>
                                 <td className="p-2 border">{item.phone}</td>
                                 <td className="p-2 border">{item.role}</td>
                                 <td className="p-2 border">

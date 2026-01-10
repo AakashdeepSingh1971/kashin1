@@ -8,6 +8,7 @@ type JobFormData = {
     phone: string;
     role: string;
     portfolioLink: string;
+    email: string;
 };
 
 const JobApplicationForm = () => {
@@ -15,7 +16,8 @@ const JobApplicationForm = () => {
         fullName: '',
         phone: '',
         role: '',
-        portfolioLink: ''
+        portfolioLink: '',
+        email: ''
     });
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -45,7 +47,7 @@ const JobApplicationForm = () => {
             if (!res.ok) throw new Error('Submission failed');
 
             setSubmitted(true);
-            setFormData({ fullName: '', phone: '', role: '', portfolioLink: '' });
+            setFormData({ fullName: '', phone: '', role: '', portfolioLink: '', email: '' });
         } catch (err) {
             const message = err instanceof Error ? err.message : 'Something went wrong';
             console.error(err);
@@ -77,7 +79,7 @@ const JobApplicationForm = () => {
                                 </svg>
                             </div>
                             <h3 className="text-2xl font-semibold text-amber-900 mb-2">Application Submitted!</h3>
-                            <p className="text-amber-900/60">Our team will contact you within 24-48 hours.</p>
+                            <p className="text-amber-900/60">Our team will contact you.</p>
                         </div>
                     ) : (
                         <div className="space-y-6">
@@ -89,7 +91,20 @@ const JobApplicationForm = () => {
                                     name="fullName"
                                     value={formData.fullName}
                                     onChange={handleChange}
-                                    placeholder="Enter your full name"
+                                    placeholder="Jhon"
+                                    required
+                                    className="w-full px-4 py-3.5 bg-white border border-amber-900/10 rounded-lg text-amber-900 placeholder:text-amber-900/40 focus:outline-none focus:border-amber-900/30 focus:ring-2 focus:ring-amber-900/10 transition-all"
+                                />
+                            </div>
+                            {/* Email */}
+                            <div>
+                                <label className="block text-amber-900 text-sm font-medium mb-2">Email</label>
+                                <input
+                                    type="text"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    placeholder="Jhon@gmail.com"
                                     required
                                     className="w-full px-4 py-3.5 bg-white border border-amber-900/10 rounded-lg text-amber-900 placeholder:text-amber-900/40 focus:outline-none focus:border-amber-900/30 focus:ring-2 focus:ring-amber-900/10 transition-all"
                                 />
@@ -123,7 +138,7 @@ const JobApplicationForm = () => {
                                     name="role"
                                     value={formData.role}
                                     onChange={handleChange}
-                                    placeholder="e.g., Frontend Developer, Designer, Marketing Manager"
+                                    placeholder="e.g., Merchandiser, Performance Marketing Specialist, Sales Consultant, Client Relationship Manager"
                                     required
                                     className="w-full px-4 py-3.5 bg-white border border-amber-900/10 rounded-lg text-amber-900 placeholder:text-amber-900/40 focus:outline-none focus:border-amber-900/30 focus:ring-2 focus:ring-amber-900/10 transition-all"
                                 />

@@ -32,7 +32,7 @@ const ContactForm = () => {
 
       toast({
         title: "Details Submitted",
-        description: "Our team will contact you within 24-48 hours.",
+        description: "Our team will contact you.",
       });
 
       setFormData({
@@ -77,7 +77,7 @@ const ContactForm = () => {
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                placeholder="Full Name"
+                placeholder="Jhon"
                 required
                 className="w-full px-4 py-3.5 bg-kashin-cream border border-kashin-brown/10 rounded-lg text-kashin-brown placeholder:text-kashin-brown/40 focus:outline-none focus:border-kashin-brown/30 transition-colors"
               />
@@ -94,7 +94,7 @@ const ContactForm = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="email@example.com"
+                  placeholder="Jhon@gmail.com"
                   required
                   className="w-full px-4 py-3.5 bg-kashin-cream border border-kashin-brown/10 rounded-lg text-kashin-brown placeholder:text-kashin-brown/40 focus:outline-none focus:border-kashin-brown/30 transition-colors"
                 />
