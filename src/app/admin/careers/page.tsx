@@ -25,9 +25,6 @@ async function getApplications(): Promise<CareerApplication[]> {
     // Fetch API with token forwarded
     const res = await fetch(`/api/careers`, {
         cache: "no-store",
-        headers: {
-            cookie: `admin_token=${token}`,
-        },
     });
 
     if (!res.ok) {
