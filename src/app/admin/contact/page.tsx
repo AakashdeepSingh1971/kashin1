@@ -23,7 +23,7 @@ async function getApplications(): Promise<ContactItem[]> {
     }
 
     // Fetch API with token forwarded
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/contact`, {
+    const res = await fetch(`/api/contact`, {
         cache: "no-store",
         headers: {
             cookie: `admin_token=${token}`,

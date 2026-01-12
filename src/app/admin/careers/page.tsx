@@ -23,7 +23,7 @@ async function getApplications(): Promise<CareerApplication[]> {
     }
 
     // Fetch API with token forwarded
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/careers`, {
+    const res = await fetch(`/api/careers`, {
         cache: "no-store",
         headers: {
             cookie: `admin_token=${token}`,
